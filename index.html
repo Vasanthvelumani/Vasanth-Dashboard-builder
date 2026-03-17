@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Dashboard Builder</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-screen" class="auth-screen">
+<div class="auth-card">
+            <div class="auth-logo">DB</div>
+            <h2 id="auth-title">Welcome Back</h2>
+            <p id="auth-subtitle">Sign in to access your workspace</p>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="login-email" required placeholder="admin@dashboard.com">
+                </div>
+                
+                <div class="input-group">
+                    <label>Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="login-password" required placeholder="password123">
+                        <button type="button" id="toggle-password" class="password-toggle">Show</button>
+                    </div>
+                </div>
+                
+                <button type="submit" id="auth-submit-btn" class="btn primary" style="width: 100%; margin-top: 8px;">Sign In</button>
+            </form>
+
+            <div class="auth-links">
+                <a href="#" id="forgot-password">Forgot your password?</a>
+                <div>
+                    <span id="auth-switch-text" class="text-muted">Don't have an account?</span> 
+                    <a href="#" id="toggle-auth-mode">Create new user</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loader-screen" class="auth-screen hidden">
+        <div class="spinner"></div>
+        <p style="margin-top: 16px; color: var(--text-muted); font-weight: 500;">Decrypting workspace...</p>
+    </div>
+
+    <div id="app-container" class="hidden">
+        
+        <header class="top-nav">
+            <h1>Dashboard Builder</h1>
+            <div class="nav-actions">
+                <button id="btn-create-order" class="btn primary">Create Order</button>
+                <button id="btn-configure-dashboard" class="btn secondary">Configure Dashboard</button>
+                <button id="btn-logout" class="btn secondary" style="margin-left: 8px;">Log Out</button>
+            </div>
+        </header>
+
+        <main class="workspace">
+            
+            <aside id="widget-sidebar" class="sidebar hidden">
+                <h3>Widgets</h3>
+                
+                <div class="widget-group">
+                    <h4>Charts</h4>
+                    <div class="draggable-widget" draggable="true" data-type="bar-chart">Bar Chart</div>
+                    <div class="draggable-widget" draggable="true" data-type="line-chart">Line Chart</div>
+                    <div class="draggable-widget" draggable="true" data-type="pie-chart">Pie Chart</div>
+                    <div class="draggable-widget" draggable="true" data-type="area-chart">Area Chart</div>
+                    <div class="draggable-widget" draggable="true" data-type="scatter-plot">Scatter Plot</div>
+                </div>
+
+                <div class="widget-group">
+                    <h4>Tables</h4>
+                    <div class="draggable-widget" draggable="true" data-type="table">Table</div>
+                </div>
+
+                <div class="widget-group">
+                    <h4>KPIs</h4>
+                    <div class="draggable-widget" draggable="true" data-type="kpi-value">KPI Value</div>
+                </div>
+            </aside>
+
+            <section class="canvas-area">
+                <div id="date-filter-bar" class="hidden">
+                    <label for="date-filter">Show data for:</label>
+                    <select id="date-filter">
+                        <option value="all-time">All time</option>
+                        <option value="today">Today</option>
+                        <option value="7-days">Last 7 Days</option>
+                        <option value="30-days">Last 30 Days</option>
+                        <option value="90-days">Last 90 Days</option>
+                    </select>
+                    <button id="btn-save-config" class="btn primary">Save Configuration</button>
+                </div>
+
+                <div id="dashboard-canvas" class="grid-canvas">
+                    <div class="empty-state">No widgets configured. Click "Configure Dashboard" to start.</div>
+                </div>
+            </section>
+
+            <section class="order-table-section">
+                <div class="section-header">
+                    <h2>Customer Orders</h2>
+                </div>
+                <div class="table-container">
+                    <table id="customer-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer Name</th>
+                                <th>Product</th>
+                                <th>Qty</th>
+                                <th>Total Amount</th>
+                                <th>Status</th>
+                                <th>Created By</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customer-table-body">
+                            <tr id="empty-table-row">
+                                <td colspan="8" style="text-align: center; padding: 24px; color: #888;">
+                                    No data exists. Click "Create Order" to add.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <div id="settings-panel" class="side-panel hidden">
+            <div class="panel-header">
+                <h2>Widget Configuration</h2>
+                <button id="close-settings" class="close-btn">&times;</button>
+            </div>
+            <div id="settings-form-container" class="panel-body">
+                </div>
+        </div>
+
+        <div id="order-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="panel-header">
+                    <h2>Create Order</h2>
+                    <button id="close-order-modal" class="close-btn">&times;</button>
+                </div>
+                
+                <form id="create-order-form" class="panel-body">
+                    <h3>Customer Information</h3>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>First name <span class="required">*</span></label>
+                            <input type="text" id="first-name" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Last name <span class="required">*</span></label>
+                            <input type="text" id="last-name" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Email id <span class="required">*</span></label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Phone number <span class="required">*</span></label>
+                            <input type="text" id="phone" required>
+                        </div>
+                        <div class="input-group" style="grid-column: span 2;">
+                            <label>Street Address <span class="required">*</span></label>
+                            <input type="text" id="street" required>
+                        </div>
+                        <div class="input-group">
+                            <label>City <span class="required">*</span></label>
+                            <input type="text" id="city" required>
+                        </div>
+                        <div class="input-group">
+                            <label>State / Province <span class="required">*</span></label>
+                            <input type="text" id="state" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Postal code <span class="required">*</span></label>
+                            <input type="text" id="postal-code" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Country <span class="required">*</span></label>
+                            <select id="country" required>
+                                <option value="">Select Country</option>
+                                <option value="United States">United States</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Australia">Australia</option>
+                                <option value="India">India</option>
+                                <option value="Singapore">Singapore</option>
+                                <option value="Hong Kong">Hong Kong</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <h3>Order Information</h3>
+                    <div class="form-grid">
+                        <div class="input-group" style="grid-column: span 2;">
+                            <label>Choose product <span class="required">*</span></label>
+                            <select id="product" required>
+                                <option value="">Select Product</option>
+                                <option value="Fiber Internet 300 Mbps">Fiber Internet 300 Mbps</option>
+                                <option value="5G Unlimited Mobile Plan">5G Unlimited Mobile Plan</option>
+                                <option value="Fiber Internet 1 Gbps">Fiber Internet 1 Gbps</option>
+                                <option value="Business Internet 500 Mbps">Business Internet 500 Mbps</option>
+                                <option value="VoIP Corporate Package">VoIP Corporate Package</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Quantity <span class="required">*</span></label>
+                            <input type="number" id="quantity" value="1" min="1" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Unit price ($) <span class="required">*</span></label>
+                            <input type="number" id="unit-price" step="0.01" min="0" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Total amount ($)</label>
+                            <input type="number" id="total-amount" readonly class="readonly-field">
+                        </div>
+                        <div class="input-group">
+                            <label>Status <span class="required">*</span></label>
+                            <select id="status" required>
+                                <option value="Pending" selected>Pending</option>
+                                <option value="In progress">In progress</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                        </div>
+                        <div class="input-group" style="grid-column: span 2;">
+                            <label>Created by <span class="required">*</span></label>
+                            <select id="created-by" required>
+                                <option value="">Select Creator</option>
+                                <option value="Mr. Michael Harris">Mr. Michael Harris</option>
+                                <option value="Mr. Ryan Cooper">Mr. Ryan Cooper</option>
+                                <option value="Ms. Olivia Carter">Ms. Olivia Carter</option>
+                                <option value="Mr. Lucas Martin">Mr. Lucas Martin</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary">Submit Order</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="context-menu" class="context-menu hidden">
+            <div class="context-menu-item" id="menu-edit">Edit</div>
+            <div class="context-menu-item delete" id="menu-delete">Delete</div>
+        </div>
+        
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>
