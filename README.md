@@ -15,10 +15,11 @@ A modern, professional dashboard construction kit built with **Vanilla JavaScrip
 
 ## 📺 Demo
 
-Check out the full project walkthrough in action:
-[![Watch the Demo](https://img.shields.io/badge/Watch-Demo-red?style=for-the-badge&logo=googledrive)](https://drive.google.com/file/d/1xoBVUMzMIATiw81mir0WEsV_THe-QtkM/view?usp=sharing)
+Check out the project in action:
 
-[*Live Demo](https://vasanth-dashboard-builder.vercel.app/) | [Video Walkthrough*](https://drive.google.com/file/d/1xoBVUMzMIATiw81mir0WEsV_THe-QtkM/view?usp=sharing)
+[**Live Demo**](https://vasanth-dashboard-builder.vercel.app/) | [**Video Walkthrough**](https://drive.google.com/file/d/1xoBVUMzMIATiw81mir0WEsV_THe-QtkM/view?usp=sharing)
+
+[![Watch the Demo](https://img.shields.io/badge/Watch-Demo-red?style=for-the-badge&logo=googledrive)](https://drive.google.com/file/d/1xoBVUMzMIATiw81mir0WEsV_THe-QtkM/view?usp=sharing)
 
 ---
 
@@ -60,6 +61,7 @@ Check out the full project walkthrough in action:
 
 **Vasanth Velumani**
 - [GitHub](https://github.com/Vasanthvelumani)
+- [LinkedIn](https://www.linkedin.com/in/vasanth-velumani/)
 
 ---
 
