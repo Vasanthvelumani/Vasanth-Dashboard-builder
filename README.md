@@ -18,10 +18,7 @@ A modern, professional dashboard construction kit built with **Vanilla JavaScrip
 Check out the full project walkthrough in action:
 [![Watch the Demo](https://img.shields.io/badge/Watch-Demo-red?style=for-the-badge&logo=googledrive)](https://drive.google.com/file/d/1xoBVUMzMIATiw81mir0WEsV_THe-QtkM/view?usp=sharing)
 
----
-## 📺 Project Demo
-
-[![Watch the Demo]()](vasanth-dashboard-builder.vercel.app)
+[![Watch the Demo](https://img.shields.io/badge/Watch-Demo-red?style=for-the-badge&logo=googledrive)](https://drive.google.com/file/d/1xoBVUMzMIATiw81mir0WEsV_THe-QtkM/view?usp=sharing)
 
 ---
 
