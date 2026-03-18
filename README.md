@@ -19,6 +19,13 @@ Check out the full project walkthrough in action:
 [![Watch the Demo](https://img.shields.io/badge/Watch-Demo-red?style=for-the-badge&logo=googledrive)](https://drive.google.com/file/d/1xoBVUMzMIATiw81mir0WEsV_THe-QtkM/view?usp=sharing)
 
 ---
+## 📺 Project Demo
+
+[![Watch the Demo](https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg)](YOUR_GOOGLE_DRIVE_LINK_HERE)
+
+> 💡 **Tip:** Click the image above to watch the full project walkthrough on Google Drive.
+
+---
 
 ## 🛠️ Tech Stack
 
