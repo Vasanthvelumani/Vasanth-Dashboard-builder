@@ -1,6 +1,5 @@
-# 🚀 Dashboard Builder
+# Dashboard Builder
 
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 
 Dashboard Builder is a dynamic, full-stack web application designed to transform raw data into actionable insights through a highly customizable interface. Built with a focus on user autonomy, it allows users to construct personalized workspaces using an intuitive drag-and-drop engine.
@@ -44,3 +43,4 @@ The core of the application lies in its ability to bridge the gap between data e
 ### Vasanth Velumani
 
 * **Email**: vasanthvelu0927@gmail.com
+* **Phone**: 8610418055
