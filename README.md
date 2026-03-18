@@ -43,5 +43,4 @@ The core of the application lies in its ability to bridge the gap between data e
 
 ### Vasanth Velumani
 
-* **LinkedIn**: [Profile Link](www.linkedin.com/in/vasanth-v09)
 * **Email**: vasanthvelu0927@gmail.com
