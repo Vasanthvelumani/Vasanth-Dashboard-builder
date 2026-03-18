@@ -21,9 +21,7 @@ Check out the full project walkthrough in action:
 ---
 ## 📺 Project Demo
 
-[![Watch the Demo](https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg)](YOUR_GOOGLE_DRIVE_LINK_HERE)
-
-> 💡 **Tip:** Click the image above to watch the full project walkthrough on Google Drive.
+[![Watch the Demo]()](vasanth-dashboard-builder.vercel.app)
 
 ---
 
