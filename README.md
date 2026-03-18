@@ -25,7 +25,13 @@ The core of the application lies in its ability to bridge the gap between data e
 * **Temporal Analytics**: A built-in date filtering system allows users to pivot their entire dashboard view between "Today," "Last 7 Days," or "All Time" with a single click.
 
 ---
+## Demo Video
 
+[[Watch the Demo]](https://drive.google.com/file/d/1xoBVUMzMIATiw81mir0WEsV_THe-QtkM/view?usp=sharing)
+
+>  **Tip:** Click the image above to watch the full project walkthrough on Google Drive.
+
+---
 ## Tech Stack
 
 * **Frontend**: Vanilla JavaScript (ES6+)
