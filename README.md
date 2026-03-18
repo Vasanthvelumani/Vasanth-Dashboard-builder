@@ -57,8 +57,7 @@ Check out the full project walkthrough in action:
 ## 👤 Author
 
 **Vasanth Velumani**
-- [GitHub](https://www.linkedin.com/in/vasanth-v09/)
-- [LinkedIn](https://www.linkedin.com/in/vasanth-velumani/)
+- [GitHub](https://github.com/Vasanthvelumani)
 
 ---
 
