@@ -6,7 +6,7 @@ Dashboard Builder is a dynamic, full-stack web application designed to transform
 
 The core of the application lies in its ability to bridge the gap between data entry and high-level visualization. Users can manage the entire lifecycle of customer orders—from creation and editing to real-time tracking—while simultaneously building a visual layer of KPIs, Bar Charts, Line Graphs, and Data Tables that reflect those metrics instantly.
 
-**[Link to Live Demo](https://vasanthvelumani.github.io/Dashboard-builder/)**
+**[Link to Live Demo](https://vasanthvelumani.github.io/Vasanth-Dashboard-builder/)**
 
 ---
 
